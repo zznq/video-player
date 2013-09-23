@@ -8,12 +8,14 @@ define([
   'helpers/queue',
   'helpers/css_hook',
   'handlebars',
-  'helpers/rotateY'
+  'helpers/rotateY',
+  'easing'
 ], function ($, _, Backbone, JST, queue, cssHook) {
   'use strict';
 
   cssHook.create('rotateY');
   var speed = 1500;
+  var easing = 'easeOutExpo';
   
   var VideoView = Backbone.View.extend({
     el: '#videos',
@@ -29,33 +31,44 @@ define([
 
       this.$container = this.$('.' + this.model.slug('name') + '.video');
       this.$card = this.$container.find('.card');
+
+      this.$container.initial_values = {
+        'z-index': 0,
+        'top': this.$container.position().top + parseInt(this.$container.css('margin-top')),
+        'left': this.$container.position().left + parseInt(this.$container.css('margin-left')),
+        'height': this.$container.height(),
+        'width': this.$container.width()
+      };
+    },
+    start: function() {
+      var that = this;
+      var css = $.extend(
+          {}, 
+          {'position':'absolute', 'margin': '0'}, 
+          this.$container.initial_values
+        );
+      this.$container.css(css);
+
       this._add_to_queue();
     },
     open: function(outer_next) {
       var that = this;
 
-      this.$container.orig = {
-        'z-index': 10000,
-        'top': this.$container.offset().top,
-        'left': this.$container.offset().left,
-        'height': this.$container.height(),
-        'width': this.$container.width()
-      };
-
       var height = $(window).height();
       var width = $(window).width();
 
       this.$container
-        .css(this.$container.orig)
+        .css('z-index', 1000)
         .animate(
           {
-            'top': 0,
+            'top': this.$container.position().top - this.$container.offset().top,
             'left': 0,
             'height': height,
             'width': width
           },
           {
             'duration': speed,
+            'easing': easing,
             'complete': function() {
               that.$container.css('overflow', 'hidden');
             }
@@ -64,7 +77,7 @@ define([
 
 
       this.$card
-        .rotateY(180, speed)
+        .rotateY(180, speed, easing)
         .queue(function(next) {
           that.play(outer_next);
           next();
@@ -74,17 +87,18 @@ define([
       var that = this;
       this.$container
         .animate(
-          this.$container.orig,
+          this.$container.initial_values,
           {
             'duration': speed,
+            'easing': easing,
             'complete': function() {
-              that.$container.css('z-index', null);
+              that.$container.css('z-index', '');
             }
           }
-        );
+        ).css('overflow', 'visible');
 
       this.$card
-        .rotateY(0, speed, next);
+        .rotateY(0, speed, easing, next);
     },
     play: function(next) {
       var that = this;
@@ -94,9 +108,6 @@ define([
       $video.on('ended', function() {
         that.close(next);  
       });
-
-      // take out when finished testing
-      //setTimeout(function() { that.close(next); }, 1000);
 
       $video[0].play();
     },

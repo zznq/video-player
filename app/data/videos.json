@@ -1,4 +1,6 @@
 [
   { "name": "Tina & Graham Morrison", "location":"Melbourne, Australia", "path": "/data/videos/tina_graham.mp4", "poster": "/data/posters/tina_graham.png" },
-  { "name": "Oceans", "location":"", "path": "/data/videos/oceans.mp4", "poster": "/data/posters/tina_graham.png"}
+  { "name": "Oceans1", "location":"Here", "path": "/data/videos/oceans.mp4", "poster": "/data/posters/tina_graham.png"},
+  { "name": "Oceans2", "location":"There", "path": "/data/videos/oceans.mp4", "poster": "/data/posters/tina_graham.png"},
+  { "name": "Oceans3", "location":"No where", "path": "/data/videos/oceans.mp4", "poster": "/data/posters/tina_graham.png"}
 ]

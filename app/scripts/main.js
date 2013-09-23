@@ -19,10 +19,15 @@ require.config({
         bootstrap: {
             deps: ['jquery'],
             exports: 'jquery'
+        },
+        easing: {
+          deps: ['jquery'],
+          exports: 'jquery'
         }
     },
     paths: {
         jquery: '../bower_components/jquery/jquery',
+        easing: '../bower_components/jquery-easing/js/jquery.easing',
         backbone: '../bower_components/backbone/backbone',
         underscore: '../bower_components/underscore/underscore',
         handlebars: '../bower_components/handlebars/handlebars',

@@ -1,18 +1,71 @@
 $iconSpritePath: '/images/glyphicons-halflings.png';
 @import 'sass-bootstrap/lib/bootstrap';
 
-#videos {
-  /*-webkit-transform-style: preserve-3d;*/
+$off_white: #fef2e4;
+$purple: #79427f;
+
+body {
+  background-color: $off_white;
+  color: $purple;
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  line-height: 24px;
 }
-section.video.oceans {
-  display: none;
+
+h1, h2, h3 {
+  font-weight: normal;
+  font-family: 'Parisienne', cursive;
 }
+
+h1 {
+  font-size: 55px;
+  line-height: 60px;
+}
+
+.start {
+  border-radius: 2px;
+  border: 1px solid $purple;
+  color: $purple;
+  font-size: 24px;
+  padding: 10px 20px;
+  font-weight: normal;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 75px;
+
+  &:hover {
+    color: $off_white;
+    background-color: $purple;
+    text-decoration: none;
+  }
+}
+
+.square {
+  position: relative;
+  float: left;
+  width: 480px;
+  height: 270px;
+  margin: 24px;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.welcome {
+  clear: left;
+  text-align: center;
+  height: 540px;
+  padding-top: 125px;
+}
+
+#videos-wrapper {
+  position: relative;
+  height: 100%;
+  margin-top: 120px;
+}
+
 section.video {
   -webkit-perspective: 800;
   -webkit-perspective-origin: 50% 0px; 
-  position: absolute;
-  width: 480px;
-  height: 270px;
 
   video,
   .overlay {
@@ -24,13 +77,15 @@ section.video {
   }
 
   .overlay {
-    height: auto;
+    height: 100%;
     bottom: 0px;
     text-align: center;
     z-index: 2;
     display: inline-block;
-    color: white;
-    background: rgba(0,0,0,.5);
+    color: $off_white;
+    background: rgba(11,40,86,.8);
+    padding-top: 100px;
+    box-sizing: border-box;
   }
 }
 
