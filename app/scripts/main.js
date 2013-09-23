@@ -36,6 +36,19 @@ require([
 ], function (Backbone, VideosView) {
     Backbone.history.start();
 
+    Backbone.Model.prototype.slug = function(attribute) {
+      var text = this.get(attribute);
+
+      if(typeof(text) !== 'string')
+        return '';
+
+      return text
+        .toLowerCase()
+        .replace(/ /g, '-')
+        .replace(/[^-\w]+/g, '')
+        .replace(/--/g, '-');
+    };
+    
     var videos = new VideosView();
     videos.render();
 });

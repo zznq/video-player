@@ -1,6 +1,16 @@
-<section class="well video">
- <h3>{{name}}</h3>
- <video>
-  <source src="{{path}}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
-</video>
+<section class="{{slugs.name}} video">
+  <div class="card">
+    <div class="face front">
+      <img alt="{{slugs.name}}" src="{{poster}}" />
+      <div class="overlay">
+        <h3>{{name}}</h3>
+        <p>{{location}}</p>
+      </div>
+    </div>
+    <div class="face back">
+      <video>
+        <source src="{{path}}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+      </video>
+    </div>
+  </div>
 </section>

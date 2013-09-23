@@ -1,7 +1,61 @@
 $iconSpritePath: '/images/glyphicons-halflings.png';
 @import 'sass-bootstrap/lib/bootstrap';
 
-video {
+#videos {
+  /*-webkit-transform-style: preserve-3d;*/
+}
+section.video.oceans {
+  display: none;
+}
+section.video {
+  -webkit-perspective: 800;
+  -webkit-perspective-origin: 50% 0px; 
+  position: absolute;
   width: 480px;
   height: 270px;
+
+  video,
+  .overlay {
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .overlay {
+    height: auto;
+    bottom: 0px;
+    text-align: center;
+    z-index: 2;
+    display: inline-block;
+    color: white;
+    background: rgba(0,0,0,.5);
+  }
+}
+
+.card {
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform-origin: 50% 0px 0;
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  .face {
+    position: absolute;
+    opacity: .99;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+  }
+
+  .front {
+    -webkit-transform: rotateY(0deg) translateZ(0px);
+  }
+
+  .back {
+    -webkit-transform: rotateY(180deg) translateZ(.5px);
+  }
 }
