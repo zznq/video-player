@@ -4,12 +4,26 @@ $iconSpritePath: '/images/glyphicons-halflings.png';
 $off_white: #fef2e4;
 $purple: #79427f;
 
+@font-face {
+  font-family: 'Parisienne';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Parisienne'), local('Parisienne-Regular'), url(fonts/Parisienne.woff) format('woff');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Raleway Light'), local('Raleway-Light'), url(fonts/Raleway.woff) format('woff');
+}
+
 body {
   background-color: $off_white;
   color: $purple;
   font-family: 'Raleway', sans-serif;
   font-size: 18px;
   line-height: 24px;
+  overflow: hidden;
 }
 
 h1, h2, h3 {
@@ -43,8 +57,8 @@ h1 {
 .square {
   position: relative;
   float: left;
-  width: 480px;
-  height: 270px;
+  width: 408px;
+  height: 230px;
   margin: 24px;
   display: inline-block;
   box-sizing: border-box;
@@ -53,14 +67,16 @@ h1 {
 .welcome {
   clear: left;
   text-align: center;
-  height: 540px;
-  padding-top: 125px;
+  height: 490px;
+  padding-top: 85px;
 }
 
 #videos-wrapper {
   position: relative;
   height: 100%;
-  margin-top: 120px;
+  margin-top: 30px;
+  width: 1370px;
+  margin: 30px auto 0px;
 }
 
 section.video {
@@ -97,6 +113,8 @@ section.video {
   width: 100%;
 
   .face {
+    text-align: center;
+    vertical-align: middle;
     position: absolute;
     opacity: .99;
     top: 0;
@@ -104,6 +122,10 @@ section.video {
     height: 100%;
     width: 100%;
     background-color: #000;
+  }
+
+  .face.front img {
+    max-height: 100%
   }
 
   .front {

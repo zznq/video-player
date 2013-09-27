@@ -15,8 +15,9 @@ define([
 
   cssHook.create('rotateY');
   var speed = 1500;
-  var easing = 'easeOutExpo';
-  
+  var easingOut = 'easeOutExpo';
+  var easingIn = 'easeInExpo';
+
   var VideoView = Backbone.View.extend({
     el: '#videos',
     initialize: function() {
@@ -43,8 +44,8 @@ define([
     start: function() {
       var that = this;
       var css = $.extend(
-          {}, 
-          {'position':'absolute', 'margin': '0'}, 
+          {},
+          {'position':'absolute', 'margin': '0'},
           this.$container.initial_values
         );
       this.$container.css(css);
@@ -62,13 +63,13 @@ define([
         .animate(
           {
             'top': this.$container.position().top - this.$container.offset().top,
-            'left': 0,
+            'left': 0 - parseInt(this.$container.closest('#videos-wrapper').css('marginLeft')),
             'height': height,
             'width': width
           },
           {
             'duration': speed,
-            'easing': easing,
+            'easing': easingIn,
             'complete': function() {
               that.$container.css('overflow', 'hidden');
             }
@@ -77,7 +78,7 @@ define([
 
 
       this.$card
-        .rotateY(180, speed, easing)
+        .rotateY(180, speed, easingIn)
         .queue(function(next) {
           that.play(outer_next);
           next();
@@ -90,7 +91,7 @@ define([
           this.$container.initial_values,
           {
             'duration': speed,
-            'easing': easing,
+            'easing': easingOut,
             'complete': function() {
               that.$container.css('z-index', '');
             }
@@ -98,15 +99,15 @@ define([
         ).css('overflow', 'visible');
 
       this.$card
-        .rotateY(0, speed, easing, next);
+        .rotateY(0, speed, easingOut, next);
     },
     play: function(next) {
       var that = this;
-      
+
       var $video = this.$container.find('video');
 
       $video.on('ended', function() {
-        that.close(next);  
+        that.close(next);
       });
 
       $video[0].play();
