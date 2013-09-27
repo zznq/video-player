@@ -58,6 +58,12 @@ define([
       var height = $(window).height();
       var width = $(window).width();
 
+      var $back = this.$container.find('.face.back > [data-path]');
+      var $vid = $('<video><source src="' + $back.data('path') + '" type="' + $back.data('type') + '" /></video>');
+      $back.parent().append($vid);
+      $vid[0].preload = "auto";
+
+
       this.$container
         .css('z-index', 1000)
         .animate(
@@ -94,6 +100,8 @@ define([
             'easing': easingOut,
             'complete': function() {
               that.$container.css('z-index', '');
+
+              that.$container.find('video').delete();
             }
           }
         ).css('overflow', 'visible');
@@ -103,11 +111,28 @@ define([
     },
     play: function(next) {
       var that = this;
-
       var $video = this.$container.find('video');
+      var video = $video[0];
+      video.preload = "auto";
 
       $video.on('ended', function() {
         that.close(next);
+      });
+
+      $video.on('error', function(e) {
+        console.log('error', e);
+      });
+
+      $video.on('stop', function(e) {
+        console.log('stop', e);
+      });
+
+      $video.on('stalled', function(e) {
+        console.log('stalled', e);
+      });
+
+      $video.on('suspend', function(e) {
+        console.log('suspend', e);
       });
 
       $video[0].play();

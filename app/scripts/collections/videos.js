@@ -9,7 +9,7 @@ define([
 
   var VideosCollection = Backbone.Collection.extend({
     model: VideoModel,
-    url: '/data/videos.json'
+    url: 'data/videos.json'
   });
 
   return VideosCollection;

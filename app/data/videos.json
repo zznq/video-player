@@ -1,9 +1,9 @@
 [
-  { "name": "Tina & Graham Morrison", "location":"Melbourne, Australia", "path": "/data/videos/tina_graham_clipped.mp4", "poster": "/data/posters/tina_graham_clipped.png" },
-  { "name": "Sam, Maureen, Ernie, Aunty Grace and family", "location":"Brisbane , Australia", "path": "/data/videos/uncle_sam.mp4", "poster": "/data/posters/uncle_sam.png"},
-  { "name": "Carey", "location":"Ohio", "path": "/data/videos/carey.webm", "poster": "/data/posters/carey.png", "codec": "video/webm"},
-  { "name": "Luca", "location":"Italy", "path": "/data/videos/luca.webm", "poster": "/data/posters/luca_rotate.png", "codec": "video/webm"},
-  { "name": "Berni and Laki", "location":"Mclaren Vale South Australia", "path": "/data/videos/Laki.mp4", "poster": "/data/posters/Laki.png"},
-  { "name": "Popa", "location":"Brisbane, Australia", "path": "/data/videos/popa.mp4", "poster": "/data/posters/popa.png"},
-  { "name": "Nana", "location":"Brisbane, Australia", "path": "/data/videos/nana.mp4", "poster": "/data/posters/nana.png"}
+  {"name":"Tina & Graham Morrison","location":"Melbourne, Australia","path":"data/videos/tina_graham_clipped.webm","poster":"data/posters/tina_graham_clipped.png"},
+  {"name":"Sam, Maureen, Ernie, Grace and family","location":"Brisbane , Australia","path":"data/videos/uncle_sam.webm","poster":"data/posters/uncle_sam.png"},
+  {"name":"Carey","location":"Ashland, Ohio","path":"data/videos/carey.webm","poster":"data/posters/carey.png"},
+  {"name":"Luca","location":"Acqui Terme, Italy","path":"data/videos/luca.webm","poster":"data/posters/luca_rotate.png"},
+  {"name":"Berni, Laki and Ioannis","location":"Mclaren Vale South Australia","path":"data/videos/laki.webm","poster":"data/posters/Laki.png"},
+  {"name":"Popa","location":"Brisbane, Australia","path": "data/videos/popa.webm","poster":"data/posters/popa.png"},
+  {"name":"Nana","location":"Brisbane, Australia","path": "data/videos/nana.webm","poster":"data/posters/nana.png"}
 ]

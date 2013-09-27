@@ -8,7 +8,7 @@ define([
 
     var VideoModel = Backbone.Model.extend({
         defaults: {
-          codec: 'video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
+          codec: 'video/webm'
         }
     });
 
